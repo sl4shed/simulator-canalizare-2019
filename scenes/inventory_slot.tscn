@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dxrlb5j11lr1h"]
+
+[ext_resource type="Script" uid="uid://d3dbq67186kkx" path="res://scripts/inventory_slot.gd" id="1_hddt5"]
+[ext_resource type="Texture2D" uid="uid://bqba73g75f5qc" path="res://assets/textures/inventory slot.webp" id="2_bbig2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33tmp"]
+
+[node name="Panel" type="Panel" unique_id=524044580]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 83.69
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_33tmp")
+script = ExtResource("1_hddt5")
+
+[node name="slot" type="TextureRect" parent="." unique_id=706781665]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.897457
+offset_top = -24.629692
+offset_right = 26.10254
+offset_bottom = 48.370308
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.14858691
+pivot_offset = Vector2(36.345, 36.43)
+texture = ExtResource("2_bbig2")
+metadata/_edit_use_anchors_ = true
+
+[node name="viewport" type="SubViewportContainer" parent="slot" unique_id=125854237]
+layout_mode = 0
+offset_left = 7.654998
+offset_top = -2.5
+offset_right = 107.655
+offset_bottom = 97.5
+rotation = -0.04649965
+
+[node name="subviewport" type="SubViewport" parent="slot/viewport" unique_id=520654018]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(100, 100)
+render_target_update_mode = 4

@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bd10bnd87meg2" path="res://assets/textures/prototype.png" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://djw1x5mbqhf0n" path="res://scenes/player.tscn" id="1_errlg"]
 [ext_resource type="Texture2D" uid="uid://b7sryji5f3v5p" path="res://assets/godot.svg" id="3_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://bsa4sww2p4lv5" path="res://scenes/collectable.tscn" id="4_j5jx5"]
+[ext_resource type="PackedScene" uid="uid://b7oh3lim1kpui" path="res://scenes/weapons/magnum.tscn" id="5_lpvoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74lek"]
 size = Vector2(574, 234)
@@ -16,7 +18,7 @@ repeat_times = 10
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=911575965]
 texture = ExtResource("1_bl13t")
 
-[node name="player" parent="." unique_id=676503644 instance=ExtResource("1_errlg")]
+[node name="Player" parent="." unique_id=676503644 instance=ExtResource("1_errlg")]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=2133949439]
 position = Vector2(397, -116)
@@ -31,3 +33,6 @@ shape = SubResource("RectangleShape2D_74lek")
 position = Vector2(277, 109.00001)
 scale = Vector2(-4.446301, 1.8228624)
 texture = ExtResource("3_iyx0m")
+
+[node name="collectable" parent="." unique_id=2108457587 instance=ExtResource("4_j5jx5")]
+item_scene = ExtResource("5_lpvoh")

@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dnt7v"]
 
-[node name="bullet" type="CharacterBody2D" unique_id=1369392122]
+[node name="bullet" type="CharacterBody2D" unique_id=1369392122 groups=["bullet"]]
 motion_mode = 1
 script = ExtResource("1_dnt7v")
 
@@ -14,6 +14,7 @@ scale = Vector2(1.6283153, 1.6283153)
 shape = SubResource("CircleShape2D_dnt7v")
 
 [node name="Bullet" type="Sprite2D" parent="." unique_id=62473077]
+modulate = Color(1, 1, 0, 1)
 position = Vector2(-2.842171e-14, 2)
 rotation = -0.024586678
 scale = Vector2(0.53328, 0.53328)

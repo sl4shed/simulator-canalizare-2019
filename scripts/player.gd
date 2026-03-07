@@ -4,10 +4,10 @@ extends CharacterBody2D
 @export var acceleration = 8.0
 
 @export var bullets = {
-	"pistol": 0,
-	"magnum": 0,
+	"pistol": 50,
+	"magnum": 50,
 	"shotgun": 50,
-	"flamethrower": 0
+	"flamethrower": 50
 }
 
 func _input(event: InputEvent) -> void:
@@ -26,8 +26,9 @@ func get_movement_input() -> Vector2:
 func _physics_process(delta):
 	var target_velocity = get_movement_input()
 	velocity = velocity.lerp(target_velocity, acceleration * delta)
-	if abs(velocity.x) > 0.1 or abs(velocity.y):
+	if velocity.length() > 0.5:
 		$sprite.play("walk")
 	else:
+		$sprite.stop()
 		$sprite.play("default")
 	move_and_slide()
