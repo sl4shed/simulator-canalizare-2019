@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://djw1x5mbqhf0n"]
+
+[ext_resource type="Script" uid="uid://pukfig7vssq" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://d4bwkmqyh23pk" path="res://assets/characters/player/player.webp" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bgdbexi73pcku" path="res://scenes/weapons/shotgun.tscn" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://c6dvcn3ir5onw" path="res://assets/characters/player/player_walk_left.webp" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://caukcv2xhe6xt" path="res://assets/characters/player/player_walk_right.webp" id="4_tuyoq"]
+[ext_resource type="Script" uid="uid://dngh73sj2p01c" path="res://scripts/camera.gd" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://fepvjy127qlx" path="res://scenes/weapons/inventory.tscn" id="7_fjrip"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjrip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qlg0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tuyoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+
+[node name="Player" type="CharacterBody2D" unique_id=676503644]
+motion_mode = 1
+script = ExtResource("1_g2els")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=752534530]
+position = Vector2(-0.20237732, -0.20237732)
+rotation = -1.5713531
+scale = Vector2(0.27702463, 0.27702463)
+sprite_frames = SubResource("SpriteFrames_fjrip")
+animation = &"walk"
+frame = 2
+frame_progress = 0.18151894
+
+[node name="hand" type="Node2D" parent="." unique_id=961319575]
+position = Vector2(71.79762, -0.20237732)
+
+[node name="shotgun" parent="hand" unique_id=1494527122 instance=ExtResource("3_qhqgy")]
+
+[node name="camera" type="Camera2D" parent="." unique_id=1653541435]
+position = Vector2(-0.20237732, -0.20237732)
+zoom = Vector2(0.605, 0.605)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+script = ExtResource("6_tuyoq")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=200819039]
+position = Vector2(-0.20238113, -0.2023772)
+scale = Vector2(6.039956, 6.039956)
+shape = SubResource("CircleShape2D_qhqgy")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=861235542]
+
+[node name="inventory" parent="ui" unique_id=741146410 instance=ExtResource("7_fjrip")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -50.0
+offset_right = 8.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0

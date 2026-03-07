@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bgdbexi73pcku"]
+
+[ext_resource type="Script" uid="uid://bxyx3w7whqoey" path="res://scripts/weapons/gun.gd" id="1_qn8fy"]
+[ext_resource type="Texture2D" uid="uid://cf5vfwsuvuluq" path="res://assets/weapons/shotgun.webp" id="2_qn8fy"]
+[ext_resource type="AudioStream" uid="uid://dhjrb0tio0b68" path="res://sounds/sfx/weapons/shotgun.wav" id="3_278ir"]
+[ext_resource type="AudioStream" uid="uid://dpul0q0mi2cmq" path="res://sounds/sfx/weapons/empty.wav" id="4_uukpr"]
+[ext_resource type="AudioStream" uid="uid://ddbewgp32mp7p" path="res://sounds/sfx/weapons/shotgun reload.wav" id="5_qn8fy"]
+
+[node name="shotgun" type="Node2D" unique_id=1494527122]
+script = ExtResource("1_qn8fy")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1999330417]
+position = Vector2(70, 0)
+scale = Vector2(0.2561681, 0.2561681)
+texture = ExtResource("2_qn8fy")
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=340630930]
+position = Vector2(70.99999, 0)
+scale = Vector2(0.05883602, 0.05883602)
+stream = ExtResource("3_278ir")
+
+[node name="empty" type="AudioStreamPlayer2D" parent="." unique_id=475407430]
+stream = ExtResource("4_uukpr")
+
+[node name="reload" type="AudioStreamPlayer2D" parent="." unique_id=969800499]
+stream = ExtResource("5_qn8fy")
+
+[node name="bullet_directions" type="Node2D" parent="." unique_id=1835652207]
+position = Vector2(113, -8)
+
+[node name="RayCast2D" type="RayCast2D" parent="bullet_directions" unique_id=21122777]
+rotation = -1.8564616
+
+[node name="RayCast2D2" type="RayCast2D" parent="bullet_directions" unique_id=1820977265]
+rotation = -1.6100724
+
+[node name="RayCast2D3" type="RayCast2D" parent="bullet_directions" unique_id=1760350978]
+rotation = -1.336287
+
+[node name="RayCast2D4" type="RayCast2D" parent="bullet_directions" unique_id=1125701621]
+rotation = -1.0086827

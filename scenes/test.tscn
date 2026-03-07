@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b6lwvitdeoumk"]
+
+[ext_resource type="Texture2D" uid="uid://bd10bnd87meg2" path="res://assets/textures/prototype.png" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://djw1x5mbqhf0n" path="res://scenes/player.tscn" id="1_errlg"]
+
+[node name="test" type="Node2D" unique_id=188348224]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1386188805]
+repeat_size = Vector2(1024, 1024)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=911575965]
+texture = ExtResource("1_bl13t")
+
+[node name="Player" parent="." unique_id=676503644 instance=ExtResource("1_errlg")]
