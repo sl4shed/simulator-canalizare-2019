@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://yax7mheamuce"]
+
+[ext_resource type="Script" uid="uid://bxqoggdln8udq" path="res://scripts/misc/intro.gd" id="1_i2l1n"]
+[ext_resource type="Texture2D" uid="uid://lwywr7bvipdx" path="res://assets/misc/Comic_1.webp" id="2_wfs7u"]
+[ext_resource type="Texture2D" uid="uid://dhji0bq32em6n" path="res://assets/misc/comic2.webp" id="3_es01l"]
+[ext_resource type="Texture2D" uid="uid://dbtj5h1amyxgw" path="res://assets/misc/comic_3.webp" id="4_0naf5"]
+[ext_resource type="FontFile" uid="uid://l37uv8jtt28x" path="res://assets/misc/font-bold.ttf" id="5_wfs7u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_es01l"]
+font = ExtResource("5_wfs7u")
+font_size = 29
+outline_size = 4
+outline_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+shadow_size = 11
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="intro" type="Control" unique_id=495619223]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_i2l1n")
+
+[node name="1" type="TextureRect" parent="." unique_id=980314135]
+layout_mode = 1
+offset_right = 1536.0
+offset_bottom = 864.0
+scale = Vector2(0.73686266, 0.73686266)
+texture = ExtResource("2_wfs7u")
+
+[node name="2" type="TextureRect" parent="." unique_id=1135765007]
+visible = false
+layout_mode = 1
+offset_right = 1536.0
+offset_bottom = 864.0
+scale = Vector2(0.75023454, 0.75023454)
+texture = ExtResource("3_es01l")
+
+[node name="3" type="TextureRect" parent="." unique_id=742353146]
+visible = false
+layout_mode = 1
+offset_right = 1536.0
+offset_bottom = 864.0
+scale = Vector2(0.75023454, 0.75023454)
+texture = ExtResource("4_0naf5")
+
+[node name="continue" type="Label" parent="." unique_id=1662732309]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 555.0
+offset_right = 1116.0
+offset_bottom = 592.0
+scale = Vector2(0.98217654, 0.98217654)
+text = "press \"E\" to continue"
+label_settings = SubResource("LabelSettings_es01l")
+horizontal_alignment = 2
+vertical_alignment = 1

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://5dgodglkow3t"]
+
+[ext_resource type="Script" uid="uid://byf42norrfq37" path="res://scripts/npcs/musca.gd" id="1_qug2u"]
+[ext_resource type="Texture2D" uid="uid://7kw28fs2oe3q" path="res://assets/characters/monsters/musca1.webp" id="2_hg3u2"]
+[ext_resource type="Texture2D" uid="uid://cdqy1ydlvoy75" path="res://assets/characters/monsters/musca2.webp" id="3_cmln6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jp7w6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hg3u2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hg3u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cmln6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88p40"]
+size = Vector2(294.55557, 534.35474)
+
+[node name="musca" type="CharacterBody2D" unique_id=1647079491]
+motion_mode = 1
+script = ExtResource("1_qug2u")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=987613926]
+position = Vector2(110, -141)
+scale = Vector2(2.1680732, 2.1680732)
+sprite_frames = SubResource("SpriteFrames_jp7w6")
+frame_progress = 0.41385844
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1561037712]
+position = Vector2(-8.000008, 18.000004)
+rotation = 1.566216
+scale = Vector2(2.1680732, 2.1680732)
+shape = SubResource("RectangleShape2D_88p40")
+
+[node name="bullet_directions" type="Node2D" parent="." unique_id=399421822]
+position = Vector2(0, 106.00001)
+rotation = 1.4308408
+scale = Vector2(6.0750775, 6.0750775)
+
+[node name="RayCast2D6" type="RayCast2D" parent="bullet_directions" unique_id=1864645870]
+rotation = -0.6021925
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RayCast2D5" type="RayCast2D" parent="bullet_directions" unique_id=2004552836]
+rotation = -2.2289703
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RayCast2D" type="RayCast2D" parent="bullet_directions" unique_id=449189825]
+rotation = -1.8564616
+
+[node name="RayCast2D2" type="RayCast2D" parent="bullet_directions" unique_id=499729962]
+rotation = -1.6100724
+
+[node name="RayCast2D3" type="RayCast2D" parent="bullet_directions" unique_id=1800507161]
+rotation = -1.336287
+
+[node name="RayCast2D4" type="RayCast2D" parent="bullet_directions" unique_id=1022957608]
+rotation = -1.0086827
+
+[node name="RayCast2D7" type="RayCast2D" parent="bullet_directions" unique_id=214793877]
+rotation = -0.18055266
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RayCast2D8" type="RayCast2D" parent="bullet_directions" unique_id=939687687]
+rotation = -2.6150556
+scale = Vector2(0.99999994, 0.99999994)

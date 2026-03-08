@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		if position.x == initialX: lerp_back_pos = false
 	
 func fire(player):
-	if player.bullets[bullet_type] >= 4 and can_shoot:
+	if player.bullets[bullet_type] >= $bullet_directions.get_child_count() and can_shoot:
 		position.x -= recoil
 		lerp_back_pos = true
 		$shoot.play()

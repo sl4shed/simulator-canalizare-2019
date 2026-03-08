@@ -2,7 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://cj81sem21imxw" path="res://assets/textures/metal diamond.jpg" id="1_70v6u"]
 [ext_resource type="Texture2D" uid="uid://dalhjlda0l42b" path="res://assets/textures/metal2.jpg" id="2_70v6u"]
+[ext_resource type="Script" uid="uid://d2gfj4qepqf56" path="res://scenes/rooms/random/smart_collectibles.gd" id="3_c632r"]
 [ext_resource type="PackedScene" uid="uid://bv16hmkp1o4cd" path="res://scenes/smart_collectible.tscn" id="5_037dy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7r62"]
+size = Vector2(88.94812, 213.60767)
 
 [sub_resource type="QuadMesh" id="QuadMesh_3e1ps"]
 size = Vector2(800, 100)
@@ -11,7 +15,6 @@ size = Vector2(800, 100)
 size = Vector2(800, 100)
 
 [node name="room 2" type="Node2D" unique_id=2039594692]
-position = Vector2(169, 304)
 rotation = -1.566362
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=510574379]
@@ -25,6 +28,13 @@ uv = PackedVector2Array(-301.74112, -55.524277, -178.74112, 37.475723, 129.25888
 
 [node name="entrance" type="Node2D" parent="." unique_id=214396687]
 position = Vector2(-492, -338)
+
+[node name="Area2D" type="Area2D" parent="entrance" unique_id=1475225277]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="entrance/Area2D" unique_id=2141241538]
+position = Vector2(7.5059204, 2.145111)
+shape = SubResource("RectangleShape2D_i7r62")
 
 [node name="exit" type="Node2D" parent="." unique_id=1286711823]
 position = Vector2(1653, 302)
@@ -141,5 +151,11 @@ texture = ExtResource("2_70v6u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall/MeshInstance2D10/StaticBody2D" unique_id=1530861887]
 shape = SubResource("RectangleShape2D_ar6ir")
 
-[node name="smart_collectible" parent="." unique_id=562013160 instance=ExtResource("5_037dy")]
-position = Vector2(632.52576, 568.2008)
+[node name="smart collectibles" type="Node2D" parent="." unique_id=731332626]
+script = ExtResource("3_c632r")
+
+[node name="smart_collectible" parent="smart collectibles" unique_id=562013160 instance=ExtResource("5_037dy")]
+position = Vector2(6.43219, 322.97467)
+rotation = 1.5707964
+
+[connection signal="body_entered" from="entrance/Area2D" to="smart collectibles" method="_on_area_2d_body_entered"]

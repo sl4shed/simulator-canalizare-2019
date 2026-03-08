@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://djw1x5mbqhf0n" path="res://scenes/player.tscn" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://dalhjlda0l42b" path="res://assets/textures/metal2.jpg" id="3_sugp2"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="main" type="Node2D" unique_id=229621255]
 script = ExtResource("1_sugp2")
 
@@ -19,3 +22,23 @@ repeat_times = 2
 offset_right = 4096.0
 offset_bottom = 4096.0
 texture = ExtResource("3_sugp2")
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=2134744727]
+
+[node name="Panel" type="Panel" parent="ui" unique_id=1080334624]
+top_level = true
+z_index = 9
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sugp2")
+
+[node name="Label" type="Label" parent="ui/Panel" unique_id=1352358013]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 327.0
+offset_right = 608.0
+offset_bottom = 350.0
+text = "loading"

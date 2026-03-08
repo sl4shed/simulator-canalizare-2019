@@ -20,6 +20,10 @@ config/icon="res://assets/godot.svg"
 flowerwall_crt="*uid://cc1fomjf362h5"
 GameManager="*uid://bd4dm1anq3oe0"
 
+[display]
+
+window/size/resizable=false
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/flowerwall_crt/plugin.cfg")

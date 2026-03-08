@@ -96,17 +96,18 @@ func add_item(item_scene: PackedScene) -> void:
 func list_items() -> Array:
 	var array = [];
 	for slot in $slots.get_children():
-		var item = slot.get_node("viewport/subviewport").get_child(0)
-		
-		#gun
-		if item.has_method("fire"):
-			array.push_back({
-				"type": item.ammo_type,
-			})
-		
-		# melee
-		if item.has_method("hit"):
-			array.push_back({
-				"type": item.type
-			})
+		if slot.has_node("viewport/subviewport"):
+			var item = slot.get_node("viewport/subviewport").get_child(0)
+			
+			#gun
+			if item.has_method("fire"):
+				array.push_back({
+					"gun_type": item.ammo_type,
+				})
+			
+			# melee
+			if item.has_method("hit"):
+				array.push_back({
+					"type": item.type
+				})
 	return array

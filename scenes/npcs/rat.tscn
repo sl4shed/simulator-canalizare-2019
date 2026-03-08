@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://1kl2wwv7rr6d"]
+
+[ext_resource type="Script" uid="uid://cbaw6gyvqpt3w" path="res://scripts/npcs/rat.gd" id="1_qbs23"]
+[ext_resource type="Texture2D" uid="uid://gh7g4rsarpty" path="res://assets/characters/monsters/rat1.webp" id="2_0y8s0"]
+[ext_resource type="Texture2D" uid="uid://caalkjirghbyd" path="res://assets/characters/monsters/rat2.webp" id="3_gje42"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4ei6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0y8s0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0y8s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gje42")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1ld5"]
+
+[node name="rat" type="CharacterBody2D" unique_id=241898108]
+top_level = true
+motion_mode = 1
+safe_margin = 2.94
+script = ExtResource("1_qbs23")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1459651273]
+scale = Vector2(0.6317656, 0.6317656)
+sprite_frames = SubResource("SpriteFrames_l4ei6")
+animation = &"walk"
+frame = 1
+frame_progress = 0.9023494
+
+[node name="Area2D" type="Area2D" parent="." unique_id=478157675]
+
+[node name="collision" type="CollisionShape2D" parent="Area2D" unique_id=1575346594]
+position = Vector2(-13, 26)
+scale = Vector2(13.637579, 11.834882)
+shape = SubResource("CircleShape2D_h1ld5")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1225183033]
+position = Vector2(-13, 26)
+scale = Vector2(10.748637, 9.327818)
+shape = SubResource("CircleShape2D_h1ld5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

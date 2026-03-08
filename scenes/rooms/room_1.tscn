@@ -2,11 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dalhjlda0l42b" path="res://assets/textures/metal2.jpg" id="1_scgta"]
 [ext_resource type="Texture2D" uid="uid://cj81sem21imxw" path="res://assets/textures/metal diamond.jpg" id="1_y5lrh"]
-[ext_resource type="PackedScene" uid="uid://bmagfbifocgy1" path="res://scenes/ammo/pistol.tscn" id="2_hnbyo"]
-[ext_resource type="PackedScene" uid="uid://ckx73o7euo37y" path="res://scenes/ammo/shotgun.tscn" id="3_fbq1s"]
-[ext_resource type="PackedScene" uid="uid://bsa4sww2p4lv5" path="res://scenes/collectible.tscn" id="6_aq8op"]
-[ext_resource type="PackedScene" uid="uid://be570asnassof" path="res://scenes/weapons/axe.tscn" id="7_y5lrh"]
-[ext_resource type="PackedScene" uid="uid://ut0k78v1tivq" path="res://scenes/npcs/snail.tscn" id="8_y5lrh"]
+[ext_resource type="PackedScene" uid="uid://6nubbg7omkc0" path="res://scenes/npcs/random_enemy.tscn" id="3_fbq1s"]
+[ext_resource type="PackedScene" uid="uid://cdxayq4jv4obt" path="res://scenes/npcs/dominique_sombrero.tscn" id="4_wodat"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_fbq1s"]
 size = Vector2(800, 100)
@@ -138,17 +135,8 @@ offset_right = 632.0
 offset_bottom = 327.0
 text = "room 1"
 
-[node name="pistol ammo" parent="." unique_id=1019737598 instance=ExtResource("2_hnbyo")]
-position = Vector2(571, 407)
+[node name="dominique sombrero" parent="." unique_id=83660011 instance=ExtResource("4_wodat")]
+position = Vector2(1505, 918)
 
-[node name="shotgun ammo" parent="pistol ammo" unique_id=2109342812 instance=ExtResource("3_fbq1s")]
-position = Vector2(66, -44)
-
-[node name="collectible" parent="." unique_id=2108457587 instance=ExtResource("6_aq8op")]
-position = Vector2(993, 355)
-item_scene = ExtResource("7_y5lrh")
-
-[node name="snail" parent="." unique_id=241898108 instance=ExtResource("8_y5lrh")]
-position = Vector2(96, 298)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1981688729]
+[node name="random_enemy" parent="." unique_id=1041392170 instance=ExtResource("3_fbq1s")]
+position = Vector2(236, 314)

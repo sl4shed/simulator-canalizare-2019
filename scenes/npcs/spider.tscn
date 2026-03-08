@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://co812e6p4i0i1"]
+
+[ext_resource type="Script" uid="uid://buv0hscu2kxvt" path="res://scripts/npcs/spider.gd" id="1_o1xvt"]
+[ext_resource type="Texture2D" uid="uid://dpy17fq70e6fh" path="res://assets/characters/monsters/spider1.webp" id="2_oe2t5"]
+[ext_resource type="Texture2D" uid="uid://dkxwqj5045o6p" path="res://assets/characters/monsters/spider2.webp" id="3_o34ir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esnql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oe2t5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oe2t5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o34ir")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1ld5"]
+
+[node name="spider" type="CharacterBody2D" unique_id=241898108]
+top_level = true
+motion_mode = 1
+safe_margin = 2.94
+script = ExtResource("1_o1xvt")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1459651273]
+scale = Vector2(0.6317656, 0.6317656)
+sprite_frames = SubResource("SpriteFrames_esnql")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=231454752]
+collision_layer = 0
+
+[node name="collision" type="CollisionShape2D" parent="Area2D" unique_id=1575346594]
+position = Vector2(-13, 26)
+scale = Vector2(13.637579, 11.834882)
+shape = SubResource("CircleShape2D_h1ld5")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1225183033]
+position = Vector2(-13, 26)
+scale = Vector2(10.748637, 9.327818)
+shape = SubResource("CircleShape2D_h1ld5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -30,6 +30,7 @@ animations = [{
 }]
 
 [node name="snail" type="CharacterBody2D" unique_id=241898108]
+top_level = true
 motion_mode = 1
 safe_margin = 2.94
 script = ExtResource("1_h1ld5")

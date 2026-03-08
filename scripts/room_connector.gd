@@ -6,9 +6,17 @@ var room_count = 0
 
 func _ready() -> void:
 	await add_custom_room("res://scenes/rooms/room_1.tscn")
-	await add_room()
-	await add_room()
-	await add_room()
+	for i in range(0, 49):
+		await add_room()
+	await add_custom_room("res://scenes/rooms/bossfight.tscn")
+	
+	for room in get_children():
+		for node in room.get_children():
+			if node.has_method("spawn"):
+				node.spawn()
+	
+	$ui.visible = false
+	
 	
 func add_custom_room(path) -> void:
 	# store BEFORE instantiating new room
@@ -56,14 +64,10 @@ func add_room() -> void:
 	
 	if exit_pos != null:
 		var entrance = room.get_node("entrance")
-		var exit = last_room.get_node("exit")  # get fresh ref for debug only
-
-		# rotate around entrance point instead of room origin
+		var exit = last_room.get_node("exit")
 		var rot_diff = exit_rot - entrance.global_rotation + entrance.rotation
-
 		var entrance_pos = entrance.global_position
 		room.global_position = entrance_pos + (room.global_position - entrance_pos).rotated(rot_diff)
-		#room.global_rotation += rot_diff
 		await get_tree().process_frame
 		room.global_position += exit_pos - entrance.global_position
 	last_room = room

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://uamip64yyc7i"]
+
+[ext_resource type="Script" uid="uid://bnlbs3pb73hf" path="res://scripts/npcs/cockroach.gd" id="1_3liqc"]
+[ext_resource type="Texture2D" uid="uid://dbrp4qq6wip4t" path="res://assets/characters/monsters/cockroach1.webp" id="2_pxx4l"]
+[ext_resource type="Texture2D" uid="uid://mwrnp1t3axp7" path="res://assets/characters/monsters/cockroach2.webp" id="3_3liqc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6qjjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pxx4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3liqc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1ld5"]
+
+[node name="cockroach" type="CharacterBody2D" unique_id=241898108]
+top_level = true
+motion_mode = 1
+safe_margin = 2.94
+script = ExtResource("1_3liqc")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1459651273]
+scale = Vector2(0.6317656, 0.6317656)
+sprite_frames = SubResource("SpriteFrames_6qjjb")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=478157675]
+
+[node name="collision" type="CollisionShape2D" parent="Area2D" unique_id=1575346594]
+position = Vector2(-13, 26)
+scale = Vector2(13.637579, 11.834882)
+shape = SubResource("CircleShape2D_h1ld5")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1225183033]
+position = Vector2(-13, 26)
+scale = Vector2(10.748637, 9.327818)
+shape = SubResource("CircleShape2D_h1ld5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

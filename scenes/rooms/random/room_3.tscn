@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://csgv1jpgjm00r"]
 
 [ext_resource type="Texture2D" uid="uid://cj81sem21imxw" path="res://assets/textures/metal diamond.jpg" id="1_ojrej"]
+[ext_resource type="PackedScene" uid="uid://6nubbg7omkc0" path="res://scenes/npcs/random_enemy.tscn" id="2_ialqx"]
 [ext_resource type="Texture2D" uid="uid://dalhjlda0l42b" path="res://assets/textures/metal2.jpg" id="2_ojrej"]
+[ext_resource type="PackedScene" uid="uid://bmagfbifocgy1" path="res://scenes/ammo/pistol.tscn" id="4_io4mp"]
+[ext_resource type="PackedScene" uid="uid://ckx73o7euo37y" path="res://scenes/ammo/shotgun.tscn" id="5_f25sh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_d8ufh"]
 size = Vector2(800, 100)
@@ -164,3 +167,12 @@ texture = ExtResource("2_ojrej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall/MeshInstance2D10/StaticBody2D" unique_id=554666125]
 shape = SubResource("RectangleShape2D_5bkl7")
+
+[node name="random_enemy" parent="." unique_id=1041392170 instance=ExtResource("2_ialqx")]
+position = Vector2(1346, 590)
+
+[node name="pistol ammo" parent="." unique_id=1019737598 instance=ExtResource("4_io4mp")]
+position = Vector2(1990, 942)
+
+[node name="shotgun ammo" parent="pistol ammo" unique_id=1990953764 instance=ExtResource("5_f25sh")]
+position = Vector2(-143, 19)

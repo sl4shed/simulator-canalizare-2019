@@ -10,12 +10,12 @@ var char
 var char_scale
 
 func initialize():
-	player.get_node("ui").visible = false
-	player.movement_paused = true
+	GameManager.get_player().get_node("ui").visible = false
+	GameManager.get_player().movement_paused = true
 
 func finish():
-	player.get_node("ui").visible = true
-	player.movement_paused = false
+	GameManager.get_player().get_node("ui").visible = true
+	GameManager.get_player().movement_paused = false
 
 func line(text: String, voice_line_path: String, character: String, character_name: String, anim):
 	for ch in $panel/characters.get_children():
