@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://be570asnassof"]
+
+[ext_resource type="Texture2D" uid="uid://c72hilqh4bdey" path="res://assets/weapons/pistol.webp" id="1_ivc8v"]
+[ext_resource type="Script" uid="uid://bxyx3w7whqoey" path="res://scripts/weapons/gun.gd" id="1_t1ie7"]
+[ext_resource type="AudioStream" uid="uid://dhjrb0tio0b68" path="res://sounds/sfx/weapons/shotgun.wav" id="2_t1ie7"]
+[ext_resource type="AudioStream" uid="uid://dpul0q0mi2cmq" path="res://sounds/sfx/weapons/empty.wav" id="3_61dc8"]
+[ext_resource type="AudioStream" uid="uid://bckgyeufoe2uc" path="res://sounds/sfx/weapons/pistol reload.wav" id="5_t1ie7"]
+[ext_resource type="FontFile" uid="uid://b2ry01p8xjhec" path="res://assets/misc/font.ttf" id="6_61dc8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_red3f"]
+
+[node name="pistol" type="Node2D" unique_id=840138310]
+script = ExtResource("1_t1ie7")
+recoil = 10
+initialX = 20
+debounce = 0.4
+bullet_type = "pistol"
+bullet_speed = 2200
+durability = 80
+camera_shake = null
+item_position = Vector2(1.569, 47.673)
+item_rotation = null
+item_scale = Vector2(1, 1)
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=194168271]
+position = Vector2(29, -5.0000005)
+scale = Vector2(0.2321546, 0.2321546)
+texture = ExtResource("1_ivc8v")
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=740983655]
+position = Vector2(70.99999, 0)
+scale = Vector2(0.05883602, 0.05883602)
+stream = ExtResource("2_t1ie7")
+
+[node name="empty" type="AudioStreamPlayer2D" parent="." unique_id=1005669157]
+stream = ExtResource("3_61dc8")
+
+[node name="reload" type="AudioStreamPlayer2D" parent="." unique_id=69495043]
+stream = ExtResource("5_t1ie7")
+
+[node name="bullet_directions" type="Node2D" parent="." unique_id=1791653906]
+position = Vector2(51, -16)
+
+[node name="RayCast2D" type="RayCast2D" parent="bullet_directions" unique_id=1031685319]
+rotation = -1.5897149
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=1619864609]
+visible = false
+
+[node name="panel" type="Panel" parent="ui" unique_id=1474237750]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_red3f")
+
+[node name="text" type="RichTextLabel" parent="ui/panel" unique_id=297256251]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("6_61dc8")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[color=#ff3838]20[/color] bullets left"
+scroll_active = false
+vertical_alignment = 1
+justification_flags = 0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uj7np8sucwmu"
+path="res://.godot/imported/sa nu te aproprii de marian.wav-5aa6854980baceafa90315eee5d76982.sample"
+
+[deps]
+
+source_file="res://sounds/voice lines/bunici/sa nu te aproprii de marian.wav"
+dest_files=["res://.godot/imported/sa nu te aproprii de marian.wav-5aa6854980baceafa90315eee5d76982.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

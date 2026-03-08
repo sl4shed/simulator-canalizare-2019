@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cdxayq4jv4obt"]
+
+[ext_resource type="Script" uid="uid://cymf43g3b2q3e" path="res://scripts/npcs/dominique_sombrero.gd" id="1_5roxq"]
+[ext_resource type="Texture2D" uid="uid://tguuye2vd7u" path="res://assets/characters/npcs/dominique_topdown.webp" id="2_16ado"]
+[ext_resource type="Shader" uid="uid://hous8rdi26ma" path="res://misc/outline.gdshader" id="2_ukp6s"]
+[ext_resource type="FontFile" uid="uid://l37uv8jtt28x" path="res://assets/misc/font-bold.ttf" id="4_ukp6s"]
+[ext_resource type="PackedScene" uid="uid://3tlq6quwmhxc" path="res://scenes/dialog.tscn" id="5_r4qj1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4qj1"]
+shader = ExtResource("2_ukp6s")
+shader_parameter/color = Color(1, 1, 1, 0)
+shader_parameter/width = 10.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5roxq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4qj1"]
+font = ExtResource("4_ukp6s")
+font_size = 36
+
+[node name="dominique sombrero" type="CharacterBody2D" unique_id=83660011]
+script = ExtResource("1_5roxq")
+metadata/_edit_horizontal_guides_ = [-183.0]
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=835269798]
+material = SubResource("ShaderMaterial_r4qj1")
+position = Vector2(1, -8)
+rotation = -1.5870223
+scale = Vector2(0.25534326, 0.25534326)
+texture = ExtResource("2_16ado")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=437132856]
+scale = Vector2(6.07744, 6.07744)
+shape = SubResource("CircleShape2D_5roxq")
+
+[node name="text" type="Label" parent="." unique_id=405211970]
+visible = false
+offset_left = -110.0
+offset_top = -109.0
+offset_right = 119.0
+offset_bottom = -72.0
+text = "\"E\" - Talk"
+label_settings = SubResource("LabelSettings_r4qj1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=800421551]
+visible = false
+
+[node name="dialog" parent="ui" unique_id=1623492566 instance=ExtResource("5_r4qj1")]
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="." unique_id=894095151]

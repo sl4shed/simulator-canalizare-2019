@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0au2e8tui1r2"
+path="res://.godot/imported/canalizare.wav-7f22b80f4c49b549435d1818ee0f3e72.sample"
+
+[deps]
+
+source_file="res://sounds/voice lines/bunici/canalizare.wav"
+dest_files=["res://.godot/imported/canalizare.wav-7f22b80f4c49b549435d1818ee0f3e72.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

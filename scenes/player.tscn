@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://d4bwkmqyh23pk" path="res://assets/characters/player/player.webp" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c6dvcn3ir5onw" path="res://assets/characters/player/player_walk_left.webp" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://caukcv2xhe6xt" path="res://assets/characters/player/player_walk_right.webp" id="4_tuyoq"]
+[ext_resource type="Shader" uid="uid://713yek2hksd4" path="res://misc/vignette.gdshader" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://dngh73sj2p01c" path="res://scripts/camera.gd" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://fepvjy127qlx" path="res://scenes/inventory.tscn" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://c47kaa2pf8rgj" path="res://assets/textures/health_outline.webp" id="8_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://c0fxjhl40s1rg" path="res://assets/textures/health_inside.webp" id="9_y4r1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fjrip"]
 animations = [{
@@ -37,6 +40,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjrip"]
+shader = ExtResource("5_fjrip")
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
 [node name="player" type="CharacterBody2D" unique_id=676503644]
 motion_mode = 1
 script = ExtResource("1_g2els")
@@ -67,6 +76,15 @@ shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=861235542]
 
+[node name="vignette" type="ColorRect" parent="ui" unique_id=329399825]
+material = SubResource("ShaderMaterial_fjrip")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
 [node name="inventory" parent="ui" unique_id=741146410 node_paths=PackedStringArray("player") instance=ExtResource("7_fjrip")]
 anchors_preset = 7
 anchor_left = 0.5
@@ -80,3 +98,35 @@ offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 player = NodePath("../..")
+
+[node name="health bar" type="TextureRect" parent="ui" unique_id=2055970161]
+z_index = 2
+clip_contents = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -432.0
+offset_right = 113.0
+offset_bottom = 432.0
+grow_vertical = 2
+scale = Vector2(0.41354096, 0.41354096)
+pivot_offset = Vector2(0, 432)
+texture = ExtResource("8_ur7pv")
+expand_mode = 1
+
+[node name="progress" type="TextureRect" parent="ui/health bar" unique_id=1092044061]
+z_index = 1
+z_as_relative = false
+clip_contents = true
+layout_mode = 1
+offset_left = -2.4181404
+offset_top = -864.12317
+offset_right = 103.58186
+offset_bottom = -0.123168945
+scale = Vector2(1, -1)
+pivot_offset = Vector2(0, 864)
+texture = ExtResource("9_y4r1p")
+expand_mode = 1
+stretch_mode = 2
+flip_v = true

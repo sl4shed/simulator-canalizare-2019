@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://bv16hmkp1o4cd"]
 
 [ext_resource type="Script" uid="uid://bsk6jy2najbbf" path="res://scripts/smart_collectible.gd" id="1_2is3l"]
-[ext_resource type="PackedScene" uid="uid://bsa4sww2p4lv5" path="res://scenes/collectible.tscn" id="2_b2iy7"]
 
 [node name="smart_collectible" type="Node2D" unique_id=562013160]
 script = ExtResource("1_2is3l")
-
-[node name="collectible" parent="." unique_id=2108457587 instance=ExtResource("2_b2iy7")]

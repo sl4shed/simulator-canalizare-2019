@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://duuvrwlxaob6k"
+path="res://.godot/imported/monstrii mutanti.wav-6a3960a3a708531b57e8ba279e8153a0.sample"
+
+[deps]
+
+source_file="res://sounds/voice lines/player/monstrii mutanti.wav"
+dest_files=["res://.godot/imported/monstrii mutanti.wav-6a3960a3a708531b57e8ba279e8153a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

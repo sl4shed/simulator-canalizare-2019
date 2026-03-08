@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsa4sww2p4lv5"]
 
-[ext_resource type="Script" uid="uid://c43bmgpawp70t" path="res://scripts/collectable.gd" id="1_ssmd0"]
+[ext_resource type="Script" uid="uid://c43bmgpawp70t" path="res://scripts/collectible.gd" id="1_ssmd0"]
 [ext_resource type="FontFile" uid="uid://l37uv8jtt28x" path="res://assets/misc/font-bold.ttf" id="2_llfh3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dnya4"]

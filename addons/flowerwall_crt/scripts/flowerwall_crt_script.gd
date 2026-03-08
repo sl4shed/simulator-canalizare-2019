@@ -26,12 +26,12 @@ func _ready() -> void:
 
 
 #Menu
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_F1 and is_enabled and OS.is_debug_build():
-			flowerwall_crt_config_ui.visible = !flowerwall_crt_config_ui.visible
-		if event.pressed and event.keycode == KEY_F2 and OS.is_debug_build():
-			enable_shader()
+#func _unhandled_key_input(event: InputEvent) -> void:
+	#if event is InputEventKey:
+		#if event.pressed and event.keycode == KEY_F1 and is_enabled and OS.is_debug_build():
+			#flowerwall_crt_config_ui.visible = !flowerwall_crt_config_ui.visible
+		#if event.pressed and event.keycode == KEY_F2 and OS.is_debug_build():
+			#enable_shader()
 
 func enable_shader() -> void:
 	if (is_enabled):

@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://3tlq6quwmhxc"]
+
+[ext_resource type="Texture2D" uid="uid://cetjxntewfwgq" path="res://assets/characters/player/player_talk.webp" id="1_4wims"]
+[ext_resource type="Script" uid="uid://b75w5lxwl04lj" path="res://scripts/dialog.gd" id="1_b1kyf"]
+[ext_resource type="Texture2D" uid="uid://cak2etwv254iu" path="res://assets/characters/npcs/dominique.webp" id="2_b1kyf"]
+[ext_resource type="Texture2D" uid="uid://dw8javdfg1xwd" path="res://assets/characters/npcs/homeless.webp" id="3_owmcw"]
+[ext_resource type="FontFile" uid="uid://b2ry01p8xjhec" path="res://assets/misc/font.ttf" id="4_ygo2i"]
+[ext_resource type="FontFile" uid="uid://l37uv8jtt28x" path="res://assets/misc/font-bold.ttf" id="5_lar43"]
+
+[node name="dialog" type="Control" unique_id=1623492566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1kyf")
+
+[node name="bg" type="Panel" parent="." unique_id=144058214]
+modulate = Color(1, 1, 1, 0.19215687)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="panel" type="Panel" parent="." unique_id=544878616]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="text" type="RichTextLabel" parent="panel" unique_id=445958139]
+custom_minimum_size = Vector2(900, 300)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 918.0
+offset_bottom = 314.0
+theme_override_fonts/normal_font = ExtResource("4_ygo2i")
+theme_override_fonts/bold_font = ExtResource("5_lar43")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[color=RED]lorem[/color] ipsum [b]linganguli[/b] guli guli guli wacha
+lin gan gu [color=BLUE]lin gan gu[/color]"
+scroll_active = false
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="characters" type="Control" parent="panel" unique_id=1433168801]
+anchors_preset = 0
+offset_left = -81.0
+offset_right = -41.0
+offset_bottom = 40.0
+
+[node name="player" type="TextureRect" parent="panel/characters" unique_id=705464344]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 844.0
+offset_top = -708.0
+offset_right = 1328.0
+offset_bottom = 260.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.55339897, 0.55339897)
+pivot_offset = Vector2(0, 968)
+texture = ExtResource("1_4wims")
+
+[node name="dominique" type="TextureRect" parent="panel/characters" unique_id=1613805241]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 829.99994
+offset_top = -708.0
+offset_right = 1314.0
+offset_bottom = 260.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5820396, 0.5820396)
+pivot_offset = Vector2(0, 968)
+texture = ExtResource("2_b1kyf")
+
+[node name="homeless" type="TextureRect" parent="panel/characters" unique_id=142941324]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 841.0
+offset_top = -708.0
+offset_right = 1325.0
+offset_bottom = 260.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5600583, 0.5600583)
+pivot_offset = Vector2(0, 968)
+texture = ExtResource("3_owmcw")

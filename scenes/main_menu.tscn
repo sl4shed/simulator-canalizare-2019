@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dm36b0arxtq08"]
+
+[ext_resource type="Texture2D" uid="uid://d14twmklt3nx8" path="res://assets/textures/logo.png" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bim3km57e4sxn" path="res://assets/textures/button.png" id="2_ekxnf"]
+
+[node name="main menu" type="Control" unique_id=740780907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1427294583]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -465.0
+offset_right = 874.0
+offset_bottom = 303.0
+grow_horizontal = 2
+scale = Vector2(0.695, 0.695)
+texture = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1575055085]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = -86.0
+offset_right = 236.5
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer" unique_id=1990026834]
+layout_mode = 2
+texture_normal = ExtResource("2_ekxnf")

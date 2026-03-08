@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1gsowhckr77h"
+path="res://.godot/imported/ma mananca o musca.wav-0ddadd724289b8a98b429b09788bcb3c.sample"
+
+[deps]
+
+source_file="res://sounds/voice lines/player/ma mananca o musca.wav"
+dest_files=["res://.godot/imported/ma mananca o musca.wav-0ddadd724289b8a98b429b09788bcb3c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
