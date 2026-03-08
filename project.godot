@@ -23,6 +23,7 @@ GameManager="*uid://bd4dm1anq3oe0"
 [display]
 
 window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

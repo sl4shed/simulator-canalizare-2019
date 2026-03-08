@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cj81sem21imxw" path="res://assets/textures/metal diamond.jpg" id="1_khr6r"]
 [ext_resource type="Texture2D" uid="uid://gh7g4rsarpty" path="res://assets/characters/monsters/rat1.webp" id="2_3lx0v"]
 [ext_resource type="Texture2D" uid="uid://dalhjlda0l42b" path="res://assets/textures/metal2.jpg" id="3_ini3g"]
-[ext_resource type="PackedScene" uid="uid://djw1x5mbqhf0n" path="res://scenes/player.tscn" id="4_vpoh1"]
 [ext_resource type="PackedScene" uid="uid://5dgodglkow3t" path="res://scenes/npcs/musca.tscn" id="5_qc2le"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrwyd"]
@@ -353,8 +352,6 @@ shape = SubResource("RectangleShape2D_khr6r")
 [node name="exit" type="Node2D" parent="." unique_id=96582808]
 position = Vector2(1439, -2017)
 rotation = -1.5346316
-
-[node name="player" parent="." unique_id=676503644 instance=ExtResource("4_vpoh1")]
 
 [node name="musca" parent="." unique_id=1647079491 instance=ExtResource("5_qc2le")]
 
