@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bmagfbifocgy1"]
+
+[ext_resource type="Script" uid="uid://il8yuo1706ow" path="res://scripts/ammo.gd" id="1_8lsnk"]
+[ext_resource type="Texture2D" uid="uid://b6y430uv1g60p" path="res://assets/weapons/ammo casing.webp" id="2_27jqf"]
+[ext_resource type="Shader" uid="uid://hous8rdi26ma" path="res://misc/outline.gdshader" id="2_gkii3"]
+[ext_resource type="FontFile" uid="uid://l37uv8jtt28x" path="res://assets/misc/font-bold.ttf" id="4_gkii3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7j0ou"]
+shader = ExtResource("2_gkii3")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/width = 10.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/tint = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7j0ou"]
+font = ExtResource("4_gkii3")
+font_size = 36
+
+[node name="pistol ammo" type="Node2D" unique_id=1019737598]
+script = ExtResource("1_8lsnk")
+tint = Color(1, 0, 0, 1)
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1551538293]
+material = SubResource("ShaderMaterial_7j0ou")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_27jqf")
+
+[node name="text" type="Label" parent="." unique_id=216224112]
+visible = false
+offset_left = -107.0
+offset_top = -71.0
+offset_right = 122.0
+offset_bottom = -34.0
+text = "\"E\" - Collect"
+label_settings = SubResource("LabelSettings_7j0ou")
+horizontal_alignment = 1
+vertical_alignment = 1

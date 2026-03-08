@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://ut0k78v1tivq"]
 
 [ext_resource type="Script" uid="uid://wqyoc441s5fc" path="res://scripts/npcs/snail.gd" id="1_h1ld5"]
+[ext_resource type="Texture2D" uid="uid://dopyu1aupilwy" path="res://assets/textures/poison circle.png" id="2_864yw"]
 [ext_resource type="Texture2D" uid="uid://c86cpx47o3mnj" path="res://assets/characters/monsters/snail_1.webp" id="2_py7lo"]
 [ext_resource type="Texture2D" uid="uid://d2qah53fnaym5" path="res://assets/characters/monsters/snail2.webp" id="3_864yw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1ld5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6qjjb"]
 animations = [{
@@ -26,24 +29,33 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h1ld5"]
-
 [node name="snail" type="CharacterBody2D" unique_id=241898108]
 motion_mode = 1
 safe_margin = 2.94
 script = ExtResource("1_h1ld5")
 
-[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1459651273]
-sprite_frames = SubResource("SpriteFrames_6qjjb")
-
-[node name="collision" type="CollisionShape2D" parent="." unique_id=1575346594]
-position = Vector2(-19, 41.000004)
-scale = Vector2(17.013647, 14.764682)
-shape = SubResource("CircleShape2D_h1ld5")
-
 [node name="infection_zone" type="Area2D" parent="." unique_id=1016755473]
+scale = Vector2(0.6317656, 0.6317656)
+collision_layer = 0
 
 [node name="collision" type="CollisionShape2D" parent="infection_zone" unique_id=1724402257]
 position = Vector2(-19, 41.000004)
 scale = Vector2(23.007097, 19.965881)
 shape = SubResource("CircleShape2D_h1ld5")
+
+[node name="Sprite2D" type="Sprite2D" parent="infection_zone" unique_id=516168142]
+position = Vector2(-18.994387, 41.154507)
+scale = Vector2(1.273122, 1.273122)
+texture = ExtResource("2_864yw")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1459651273]
+scale = Vector2(0.6317656, 0.6317656)
+sprite_frames = SubResource("SpriteFrames_6qjjb")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1575346594]
+position = Vector2(-13, 26)
+scale = Vector2(10.748637, 9.327818)
+shape = SubResource("CircleShape2D_h1ld5")
+
+[connection signal="body_entered" from="infection_zone" to="." method="_on_infection_zone_body_entered"]
+[connection signal="body_exited" from="infection_zone" to="." method="_on_infection_zone_body_exited"]

@@ -7,7 +7,10 @@
 [ext_resource type="Shader" uid="uid://713yek2hksd4" path="res://misc/vignette.gdshader" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://dngh73sj2p01c" path="res://scripts/camera.gd" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://fepvjy127qlx" path="res://scenes/inventory.tscn" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://dbddsmib3f31t" path="res://assets/textures/outline_infection.webp" id="8_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c47kaa2pf8rgj" path="res://assets/textures/health_outline.webp" id="8_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://cc7to0l4m80bt" path="res://assets/textures/inline_infection.webp" id="9_3v2ag"]
+[ext_resource type="Script" uid="uid://dbhjbupjgogku" path="res://scripts/misc/bar.gd" id="9_jej6c"]
 [ext_resource type="Texture2D" uid="uid://c0fxjhl40s1rg" path="res://assets/textures/health_inside.webp" id="9_y4r1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fjrip"]
@@ -99,6 +102,39 @@ grow_horizontal = 2
 grow_vertical = 0
 player = NodePath("../..")
 
+[node name="infection bar" type="TextureRect" parent="ui" unique_id=1130951074]
+z_index = 2
+clip_contents = true
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 57.0
+offset_top = -432.0
+offset_right = 163.0
+offset_bottom = 432.0
+grow_vertical = 2
+scale = Vector2(0.41354096, 0.41354096)
+pivot_offset = Vector2(0, 432)
+texture = ExtResource("8_d2wvv")
+expand_mode = 1
+script = ExtResource("9_jej6c")
+
+[node name="progress" type="TextureRect" parent="ui/infection bar" unique_id=1184169734]
+z_index = 1
+z_as_relative = false
+clip_contents = true
+layout_mode = 1
+offset_left = 0.25442004
+offset_top = -870.82324
+offset_right = 106.25442
+offset_bottom = -31.823242
+scale = Vector2(1, -1)
+pivot_offset = Vector2(0, 864)
+texture = ExtResource("9_3v2ag")
+expand_mode = 1
+stretch_mode = 2
+flip_v = true
+
 [node name="health bar" type="TextureRect" parent="ui" unique_id=2055970161]
 z_index = 2
 clip_contents = true
@@ -114,6 +150,7 @@ scale = Vector2(0.41354096, 0.41354096)
 pivot_offset = Vector2(0, 432)
 texture = ExtResource("8_ur7pv")
 expand_mode = 1
+script = ExtResource("9_jej6c")
 
 [node name="progress" type="TextureRect" parent="ui/health bar" unique_id=1092044061]
 z_index = 1
@@ -123,7 +160,7 @@ layout_mode = 1
 offset_left = -2.4181404
 offset_top = -864.12317
 offset_right = 103.58186
-offset_bottom = -0.123168945
+offset_bottom = -25.123169
 scale = Vector2(1, -1)
 pivot_offset = Vector2(0, 864)
 texture = ExtResource("9_y4r1p")

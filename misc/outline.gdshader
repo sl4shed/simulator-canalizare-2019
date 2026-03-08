@@ -6,7 +6,7 @@ uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
 uniform bool inside = false;
 uniform bool add_margins = true; // only useful when inside is false
 uniform vec2 number_of_images = vec2(1.0); // number of horizontal and vertical images in the sprite sheet
-
+uniform vec4 tint : source_color = vec4(1.0);
 varying flat vec4 modulate;
 
 void vertex() {
@@ -61,11 +61,18 @@ void fragment() {
 			COLOR.a = 0.0;
 		} else {
 			COLOR = texture(TEXTURE, uv) * modulate;
+			// tint only the sprite pixels
+			COLOR.rgb *= tint.rgb;
+			COLOR.a *= tint.a;
 		}
 	} else {
 		COLOR = texture(TEXTURE, uv) * modulate;
+		// tint only the sprite pixels
+		COLOR.rgb *= tint.rgb;
+		COLOR.a *= tint.a;
 	}
 	
+	// outline is applied after, untinted
 	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, image_top_left, image_bottom_right, TEXTURE)) {
 		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb * modulate.rgb, color.a * modulate.a) : color.rgb * modulate.rgb;
 		COLOR.a += (1.0 - COLOR.a) * color.a * modulate.a;

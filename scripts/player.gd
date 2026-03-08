@@ -4,14 +4,18 @@ extends CharacterBody2D
 @export var speed = 800
 @export var acceleration = 8.0
 @export var bullets = {
-	"pistol": 50,
-	"magnum": 50,
-	"shotgun": 50,
-	"flamethrower": 50
+	"pistol": 0,
+	"magnum": 0,
+	"shotgun": 0
 }
 
 @export var health = 100
 @export var infection = 0
+
+var lerp_vignette = false
+
+func _ready():
+	$"ui/infection bar".set_progress(0)
 
 func _input(event: InputEvent) -> void:
 	if movement_paused: return
@@ -40,9 +44,29 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	infection = max(infection - 0.01, 0)
+	
+	if lerp_vignette:
+		var color: Color = $ui/vignette.material.get_shader_parameter("vignette_rgb")
+		color = color.lerp(Color.BLACK, delta * 2)
+		$ui/vignette.material.set_shader_parameter("vignette_rgb", color)
+		if color.is_equal_approx(Color.BLACK):
+			lerp_vignette = false
 
-func hurt(damage, infect):
+func hurt(damage):
+	$camera.trauma += 0.3
 	health -= damage
+	$ui/vignette.material.set_shader_parameter("vignette_rgb", Color.RED)
+	lerp_vignette = true
+	$"ui/health bar".set_progress(health)
+	if health <= 0:
+		#die
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func infect(infect):
 	infection += infect
 	
-	#todo ui bar
+	$ui/vignette.material.set_shader_parameter("vignette_rgb", Color.DARK_MAGENTA)
+	lerp_vignette = true
+	$"ui/infection bar".set_progress(infection)
+	if infection >= 100:
+		get_tree().quit() # "crash"

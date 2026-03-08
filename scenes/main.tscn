@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpeuhyvgxvf4"]
+
+[ext_resource type="Script" uid="uid://dfb0x85tne4bb" path="res://scripts/room_connector.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://djw1x5mbqhf0n" path="res://scenes/player.tscn" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dalhjlda0l42b" path="res://assets/textures/metal2.jpg" id="3_sugp2"]
+
+[node name="main" type="Node2D" unique_id=229621255]
+script = ExtResource("1_sugp2")
+
+[node name="player" parent="." unique_id=676503644 instance=ExtResource("2_sugp2")]
+top_level = true
+position = Vector2(1311, 869)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1613559599]
+repeat_size = Vector2(4096, 4096)
+repeat_times = 2
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=156563767]
+offset_right = 4096.0
+offset_bottom = 4096.0
+texture = ExtResource("3_sugp2")

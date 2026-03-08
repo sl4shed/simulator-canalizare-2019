@@ -13,7 +13,7 @@
 script = ExtResource("1_qn8fy")
 initialX = 10
 bullet_type = "magnum"
-bullet_damage = 30
+bullet_damage = 35
 bullet_speed = 3000
 durability = 140
 item_position = Vector2(2.426, 52.299)

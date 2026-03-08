@@ -1,68 +1,100 @@
 [gd_scene format=3 uid="uid://be570asnassof"]
 
-[ext_resource type="Texture2D" uid="uid://c72hilqh4bdey" path="res://assets/weapons/pistol.webp" id="1_ivc8v"]
-[ext_resource type="Script" uid="uid://bxyx3w7whqoey" path="res://scripts/weapons/gun.gd" id="1_t1ie7"]
+[ext_resource type="Script" uid="uid://b8dprgr8hv3vw" path="res://scripts/weapons/axe.gd" id="1_5wbh6"]
+[ext_resource type="Texture2D" uid="uid://dinkwughetoyr" path="res://assets/textures/axe.webp" id="2_8dowj"]
 [ext_resource type="AudioStream" uid="uid://dhjrb0tio0b68" path="res://sounds/sfx/weapons/shotgun.wav" id="2_t1ie7"]
-[ext_resource type="AudioStream" uid="uid://dpul0q0mi2cmq" path="res://sounds/sfx/weapons/empty.wav" id="3_61dc8"]
-[ext_resource type="AudioStream" uid="uid://bckgyeufoe2uc" path="res://sounds/sfx/weapons/pistol reload.wav" id="5_t1ie7"]
-[ext_resource type="FontFile" uid="uid://b2ry01p8xjhec" path="res://assets/misc/font.ttf" id="6_61dc8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_red3f"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e7b6"]
+size = Vector2(27, 87)
 
-[node name="pistol" type="Node2D" unique_id=840138310]
-script = ExtResource("1_t1ie7")
-recoil = 10
-initialX = 20
-debounce = 0.4
-bullet_type = "pistol"
-bullet_speed = 2200
-durability = 80
-camera_shake = null
-item_position = Vector2(1.569, 47.673)
-item_rotation = null
-item_scale = Vector2(1, 1)
+[sub_resource type="Animation" id="Animation_rxuo5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19.000002, 6.9999995)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5590554]
+}
+
+[sub_resource type="Animation" id="Animation_uo5s6"]
+resource_name = "fire"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03847883, 0.07022386, 0.2, 0.23333333, 0.3519464, 0.41447452, 0.45391533, 0.48662233),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(19.000002, 6.9999995), Vector2(23, 11), Vector2(28, 15.000001), Vector2(31, 23), Vector2(34, 30), Vector2(35, 31.000004), Vector2(24.999996, 18.999998), Vector2(15.999999, -5), Vector2(19, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03847883, 0.07022386, 0.2, 0.23333333, 0.3519464, 0.41447452, 0.45391533, 0.48662233),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5590554, 1.6082982, 1.7885923, 2.4369822, 2.9333186, 3.2108872, 2.175149, 1.8079537, 1.5941988]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vwcyl"]
+_data = {
+&"RESET": SubResource("Animation_rxuo5"),
+&"fire": SubResource("Animation_uo5s6")
+}
+
+[node name="axe" type="Node2D" unique_id=840138310]
+script = ExtResource("1_5wbh6")
+item_position = Vector2(13.909, 32.334)
+item_rotation = 50.0
+item_scale = Vector2(0.694, 0.694)
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=194168271]
-position = Vector2(29, -5.0000005)
-scale = Vector2(0.2321546, 0.2321546)
-texture = ExtResource("1_ivc8v")
+position = Vector2(19.000002, 6.9999995)
+rotation = 1.5590554
+scale = Vector2(0.23215461, 0.23215461)
+texture = ExtResource("2_8dowj")
+
+[node name="Area2D" type="Area2D" parent="sprite" unique_id=384721471]
+position = Vector2(-31.111115, 81.482376)
+rotation = -1.5590554
+scale = Vector2(4.307475, 4.307475)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite/Area2D" unique_id=665954596]
+position = Vector2(20.5, -8.5)
+shape = SubResource("RectangleShape2D_5e7b6")
 
 [node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=740983655]
 position = Vector2(70.99999, 0)
 scale = Vector2(0.05883602, 0.05883602)
 stream = ExtResource("2_t1ie7")
 
-[node name="empty" type="AudioStreamPlayer2D" parent="." unique_id=1005669157]
-stream = ExtResource("3_61dc8")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1606793495]
+libraries/ = SubResource("AnimationLibrary_vwcyl")
 
-[node name="reload" type="AudioStreamPlayer2D" parent="." unique_id=69495043]
-stream = ExtResource("5_t1ie7")
-
-[node name="bullet_directions" type="Node2D" parent="." unique_id=1791653906]
-position = Vector2(51, -16)
-
-[node name="RayCast2D" type="RayCast2D" parent="bullet_directions" unique_id=1031685319]
-rotation = -1.5897149
-
-[node name="ui" type="CanvasLayer" parent="." unique_id=1619864609]
-visible = false
-
-[node name="panel" type="Panel" parent="ui" unique_id=1474237750]
-custom_minimum_size = Vector2(200, 0)
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_red3f")
-
-[node name="text" type="RichTextLabel" parent="ui/panel" unique_id=297256251]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/outline_size = 9
-theme_override_fonts/normal_font = ExtResource("6_61dc8")
-theme_override_font_sizes/normal_font_size = 27
-bbcode_enabled = true
-text = "[color=#ff3838]20[/color] bullets left"
-scroll_active = false
-vertical_alignment = 1
-justification_flags = 0
+[connection signal="body_entered" from="sprite/Area2D" to="." method="_on_area_2d_body_entered"]
