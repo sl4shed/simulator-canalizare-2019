@@ -37,16 +37,14 @@ func add_custom_room(path) -> void:
 	last_room = room
 
 func add_room() -> void:
-	var dir = DirAccess.open("res://scenes/rooms/random")
-	var files = []
-	dir.list_dir_begin()
-	var file = dir.get_next()
-	while file != "":
-		if file.ends_with(".tscn"):
-			files.append("res://scenes/rooms/random/" + file)
-		file = dir.get_next()
-	dir.list_dir_end()
-	
+	var files = [
+		"res://scenes/rooms/random/room_2.tscn",
+		"res://scenes/rooms/random/room_3.tscn",
+		"res://scenes/rooms/random/room_4.tscn",
+		"res://scenes/rooms/random/room_5.tscn",
+		"res://scenes/rooms/random/room_6.tscn",
+	]
+
 	if files.is_empty():
 		return
 
